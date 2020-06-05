@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Sistema.De.Facturacion.Web.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo_Empleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee_Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Document)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cellphone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Extension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Ingreso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo_Empleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Document.Documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cellphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Extension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.position.Position_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Ingreso)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Employe_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Employe_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Employe_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
