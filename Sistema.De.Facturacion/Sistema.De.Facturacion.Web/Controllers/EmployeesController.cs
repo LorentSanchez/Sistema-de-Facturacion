@@ -22,7 +22,7 @@ namespace Sistema.De.Facturacion.Web.Controllers
         // GET: Employees
         public async Task<IActionResult> Index()
         {
-            var dataContext = _context.Employee.Include(e => e.Document).Include(e => e.position);
+            var dataContext = _context.Employee.Include(e => e.Documents).Include(e => e.position);
             return View(await dataContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace Sistema.De.Facturacion.Web.Controllers
             }
 
             var employee = await _context.Employee
-                .Include(e => e.Document)
+                .Include(e => e.Documents)
                 .Include(e => e.position)
                 .FirstOrDefaultAsync(m => m.Employe_Id == id);
             if (employee == null)
@@ -49,7 +49,7 @@ namespace Sistema.De.Facturacion.Web.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
-            ViewData["ID_Doc"] = new SelectList(_context.Set<Document>(), "ID_Doc", "Documento");
+            ViewData["ID_Doc"] = new SelectList(_context.Document, "ID_Doc", "Documento");
             ViewData["Position_Id"] = new SelectList(_context.Set<Position>(), "Position_Id", "Position_Name");
             return View();
         }
@@ -59,7 +59,7 @@ namespace Sistema.De.Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Employe_Id,Codigo_Empleado,Employee_Name,Employee_Lastname,ID_Doc,Phone,Cellphone,Extension,Email,Status,Position_Id,Fecha_Ingreso")] Employee employee)
+        public async Task<IActionResult> Create([Bind("Employe_Id,Codigo_Empleado,Employee_Name,Employee_Lastname,ID_Doc,Document,Phone,Cellphone,Extension,Email,Status,Position_Id,Fecha_Ingreso")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace Sistema.De.Facturacion.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ID_Doc"] = new SelectList(_context.Set<Document>(), "ID_Doc", "Documento", employee.ID_Doc);
+            ViewData["ID_Doc"] = new SelectList(_context.Document, "ID_Doc", "Documento", employee.ID_Doc);
             ViewData["Position_Id"] = new SelectList(_context.Set<Position>(), "Position_Id", "Position_Name", employee.Position_Id);
             return View(employee);
         }
@@ -85,7 +85,7 @@ namespace Sistema.De.Facturacion.Web.Controllers
             {
                 return NotFound();
             }
-            ViewData["ID_Doc"] = new SelectList(_context.Set<Document>(), "ID_Doc", "Documento", employee.ID_Doc);
+            ViewData["ID_Doc"] = new SelectList(_context.Document, "ID_Doc", "Documento", employee.ID_Doc);
             ViewData["Position_Id"] = new SelectList(_context.Set<Position>(), "Position_Id", "Position_Name", employee.Position_Id);
             return View(employee);
         }
@@ -95,7 +95,7 @@ namespace Sistema.De.Facturacion.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Employe_Id,Codigo_Empleado,Employee_Name,Employee_Lastname,ID_Doc,Phone,Cellphone,Extension,Email,Status,Position_Id,Fecha_Ingreso")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("Employe_Id,Codigo_Empleado,Employee_Name,Employee_Lastname,ID_Doc,Document,Phone,Cellphone,Extension,Email,Status,Position_Id,Fecha_Ingreso")] Employee employee)
         {
             if (id != employee.Employe_Id)
             {
@@ -122,7 +122,7 @@ namespace Sistema.De.Facturacion.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ID_Doc"] = new SelectList(_context.Set<Document>(), "ID_Doc", "Documento", employee.ID_Doc);
+            ViewData["ID_Doc"] = new SelectList(_context.Document, "ID_Doc", "Documento", employee.ID_Doc);
             ViewData["Position_Id"] = new SelectList(_context.Set<Position>(), "Position_Id", "Position_Name", employee.Position_Id);
             return View(employee);
         }
@@ -136,7 +136,7 @@ namespace Sistema.De.Facturacion.Web.Controllers
             }
 
             var employee = await _context.Employee
-                .Include(e => e.Document)
+                .Include(e => e.Documents)
                 .Include(e => e.position)
                 .FirstOrDefaultAsync(m => m.Employe_Id == id);
             if (employee == null)

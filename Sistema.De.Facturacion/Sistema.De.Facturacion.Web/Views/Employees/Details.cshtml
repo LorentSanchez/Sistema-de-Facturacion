@@ -29,10 +29,16 @@
             @Html.DisplayFor(model => model.Employee_Lastname)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.Documents)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Documents.Documento)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Document)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Document.Documento)
+            @Html.DisplayFor(model => model.Document)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Phone)

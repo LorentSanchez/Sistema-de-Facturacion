@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace Sistema.De.Facturacion.Web.Models
 {
-    public class Employee
+    public class Sendor
     {
-
+        /// NO VI SU RELACION EN LAS FOTO PERO ENTIENDO QUE LO PUEDES RELACIONAR CON SUPLIDOR Y ARTICULOS 
         [Key]
-        public int Employe_Id { get; set; }
-
-
+        public int ID { get; set; }
 
         [Display(Name = "ID Empleado")]
         public string Codigo_Empleado { get; set; }
@@ -27,16 +25,15 @@ namespace Sistema.De.Facturacion.Web.Models
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Employee_Lastname { get; set; }
-
         //-----Relacion Document-----
-        [Display(Name = "Documento")]
-        [ForeignKey("Document")]
-        public int ID_Doc { get; set; }
-        public Document Documents { get; set; }
-        [Required]
-        [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
-        [Display(Name = "Numero De Referencia")]
-        public string Document { get; set; }
+        //[Display(Name = "Documento")]
+        //[ForeignKey("Document")]
+        //public int ID_Doc { get; set; }
+        //public Document Documents { get; set; }
+        //[Required]
+        //[MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+        //[Display(Name = "Numero De Referencia")]
+        //public string Document { get; set; }
 
 
         [MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
@@ -47,30 +44,10 @@ namespace Sistema.De.Facturacion.Web.Models
         [Display(Name = "Celular")]
         public string Cellphone { get; set; }
 
-        [MaxLength(6, ErrorMessage = "The {0} field can not have more than {1} characters.")]
-        [Display(Name = "Extensión")]
-        public string Extension { get; set; }
-
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
-        [Display(Name = "Estado")]
-        public bool Status { get; set; }
 
-
-        //-----Relacion Position-----
-
-        public int Position_Id { get; set; }
-        [Required]
-        [MaxLength(100, ErrorMessage = "The {0} field can not have more than {1} characters.")]
-        [Display(Name = "Posición")]
-        public  Position position { get; set; }
-
-        [Display(Name = "Fecha_Ingreso")]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/ yyyy}")]
-        [DataType(DataType.Date)]
-        public DateTime Fecha_Ingreso { get; set; }
     }
 }

@@ -22,6 +22,9 @@
                 @Html.DisplayNameFor(model => model.Employee_Lastname)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Documents)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Document)
             </th>
             <th>
@@ -61,7 +64,10 @@
                 @Html.DisplayFor(modelItem => item.Employee_Lastname)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Document.Documento)
+                @Html.DisplayFor(modelItem => item.Documents.Documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Document)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
