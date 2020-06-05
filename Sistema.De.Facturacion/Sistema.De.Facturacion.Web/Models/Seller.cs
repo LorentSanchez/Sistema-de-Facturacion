@@ -7,33 +7,33 @@ using System.Threading.Tasks;
 
 namespace Sistema.De.Facturacion.Web.Models
 {
-    public class Sendor
+    public class Seller
     {
-        /// NO VI SU RELACION EN LAS FOTO PERO ENTIENDO QUE LO PUEDES RELACIONAR CON SUPLIDOR Y ARTICULOS 
         [Key]
-        public int ID { get; set; }
+        public int Seller_Id { get; set; }
 
-        [Display(Name = "ID Empleado")]
-        public string Codigo_Empleado { get; set; }
+        [Display(Name = "Codigo")]
+        public string Codigo_Vendedor { get; set; }
 
         [Display(Name = "Nombre")]
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public string Employee_Name { get; set; }
+        public string Seller_Name { get; set; }
 
         [Display(Name = "Apellido")]
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public string Employee_Lastname { get; set; }
+        public string Seller_Lastname { get; set; }
+
         //-----Relacion Document-----
-        //[Display(Name = "Documento")]
-        //[ForeignKey("Document")]
-        //public int ID_Doc { get; set; }
-        //public Document Documents { get; set; }
-        //[Required]
-        //[MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
-        //[Display(Name = "Numero De Referencia")]
-        //public string Document { get; set; }
+        [Display(Name = "Documento")]
+        [ForeignKey("Document")]
+        public int ID_Doc { get; set; }
+        public Document Documents { get; set; }
+        [Required]
+        [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+        [Display(Name = "Numero De Referencia")]
+        public string Document { get; set; }
 
 
         [MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
@@ -47,7 +47,6 @@ namespace Sistema.De.Facturacion.Web.Models
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
 
     }
 }

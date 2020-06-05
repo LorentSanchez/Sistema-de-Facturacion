@@ -10,14 +10,18 @@ namespace Sistema.De.Facturacion.Web.Models
     public class Brand
     { // verifica la relacion
         [Key]
-        public int BrandId { get; set; }
+        public int Brand_Id { get; set; }
+
+        [Required]
+        [Display(Name = "Codigo")]
+        public string Codigo { get; set; }
 
         [Required]
         [Display(Name = "Marcas")]
-        public string BrandName { get; set; }
+        public string Brand_Name { get; set; }
 
 
 
-        public Articles Articles { get; set; }
+        public ICollection<Article> Articless { get; set; }
     }
 }

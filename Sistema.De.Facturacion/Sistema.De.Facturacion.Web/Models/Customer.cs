@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,10 +23,10 @@ namespace Sistema.De.Facturacion.Web.Models
         [Display(Name = "Apellido del Cliente")]
         public string ApellidoC { get; set; }
 
-
+        //-----Relacion Document-----
+        [Display(Name = "Documento")]
+        [ForeignKey("Document")]
         public int ID_Doc { get; set; }
-        
-        [Display(Name = "Tipo De Documento")]
         public Document Documents { get; set; }
 
         [Required]
@@ -45,7 +46,7 @@ namespace Sistema.De.Facturacion.Web.Models
         [Display(Name = "Direccion")]
         public string DireccionC { get; set; }
 
-       
+
 
         public string NombreCompleto => $"{NombreC} {ApellidoC}";
 

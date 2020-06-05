@@ -9,7 +9,6 @@ namespace Sistema.De.Facturacion.Web.Models
 {
     public class Employee
     {
-
         [Key]
         public int Employe_Id { get; set; }
 
@@ -66,7 +65,7 @@ namespace Sistema.De.Facturacion.Web.Models
         [Required]
         [MaxLength(100, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Display(Name = "Posición")]
-        public  Position position { get; set; }
+        public Position position { get; set; }
 
         [Display(Name = "Fecha_Ingreso")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/ yyyy}")]

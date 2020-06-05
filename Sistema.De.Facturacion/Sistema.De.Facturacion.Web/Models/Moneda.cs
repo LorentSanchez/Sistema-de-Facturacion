@@ -9,12 +9,12 @@ namespace Sistema.De.Facturacion.Web.Models
     public class Moneda
     {
         /// relacionado con forma de pago (FormPago)
-       [Key]
-        public int ID { get; set; }
+        [Key]
+        public int Moneda_Id { get; set; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
-        [Display(Name ="Moneda Nombre")]
+        [Display(Name = "Moneda Nombre")]
         public string Name_moneda { get; set; }
 
         [Required]
@@ -26,6 +26,8 @@ namespace Sistema.De.Facturacion.Web.Models
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Display(Name = "Monedas")]
         public string Nmoneda { get; set; }
+
+        public ICollection<FormPago> FormPagos { get; set; }
 
 
 

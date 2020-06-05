@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,17 +10,19 @@ namespace Sistema.De.Facturacion.Web.Models
     public class State
     {
         [Key]
-        public int StateId { get; set; }
+        public int State_Id { get; set; }
 
         [Required]
         [MaxLength(30)]
         [Display(Name = "Nombre De Estado")]
-        public string StateName { get; set; }
+        public string State_Name { get; set; }
 
+        //-----Relacion Country-----
+        [Display(Name = "País")]
+        [ForeignKey("Country")]
+        public int Country_Id { get; set; }
+        public Country Country { get; set; }
 
-        public ICollection<City> Citys { get; set; }
-
-        public int CountryId { get; set; }
-        public Country Countrys { get; set; }
+        public ICollection<City> Cities { get; set; }
     }
 }

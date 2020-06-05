@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,11 +10,12 @@ namespace Sistema.De.Facturacion.Web.Models
     public class Supplier
     {
         //relacionar clasificacion suplidor , tipo document y municipio 
-        public int Id_Supplier { get; set; }
+        [Key]
+        public int Supplier_Id { get; set; }
 
         [Required]
         [Display(Name = "Suplidor")]
-        public string SupplierName { get; set; }
+        public string Supplier_Name { get; set; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
@@ -28,10 +30,12 @@ namespace Sistema.De.Facturacion.Web.Models
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Display(Name = "Telefono")]
         public string phone { get; set; }
-        [Required]
-        [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+
+        //-----Relacion Neighborhood-----
         [Display(Name = "Municipio")]
-        public string Neighborhood { get; set; }
+        [ForeignKey("Neighborhood")]
+        public int Neighborhood_Id { get; set; }
+        public Neighborhood Neighborhood { get; set; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
@@ -42,6 +46,5 @@ namespace Sistema.De.Facturacion.Web.Models
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Display(Name = "Conctato")]
         public string name_contacta { get; set; }
-
     }
 }

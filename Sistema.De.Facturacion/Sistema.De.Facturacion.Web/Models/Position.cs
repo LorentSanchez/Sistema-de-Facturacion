@@ -8,6 +8,7 @@ namespace Sistema.De.Facturacion.Web.Models
 {
     public class Position
     {
+
         [Key]
         public int Position_Id { get; set; }
 
@@ -17,5 +18,7 @@ namespace Sistema.De.Facturacion.Web.Models
         public string Position_Name { get; set; }
 
         public ICollection<Employee> Employees { get; set; }
+
+        
     }
 }
