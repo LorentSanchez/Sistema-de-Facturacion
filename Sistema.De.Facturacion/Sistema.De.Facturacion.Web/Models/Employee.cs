@@ -16,7 +16,7 @@ namespace Sistema.De.Facturacion.Web.Models
 
 
         [Display(Name = "ID Empleado")]
-        public int Codigo_Empleado { get; set; }
+        public string Codigo_Empleado { get; set; }
 
         [Display(Name = "Nombre")]
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]

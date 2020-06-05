@@ -16,5 +16,9 @@ namespace Sistema.De.Facturacion.Web.Data
         public DbSet<Sistema.De.Facturacion.Web.Models.Customer> Customer { get; set; }
         public DbSet<Sistema.De.Facturacion.Web.Models.Employee> Employee { get; set; }
         public DbSet<Sistema.De.Facturacion.Web.Models.Document> Document { get; set; }
+        public DbSet<Sistema.De.Facturacion.Web.Models.Country> Country { get; set; }
+        public DbSet<Sistema.De.Facturacion.Web.Models.City> City { get; set; }
+        public DbSet<Sistema.De.Facturacion.Web.Models.Neighborhood> Neighborhood { get; set; }
+        public DbSet<Sistema.De.Facturacion.Web.Models.State> State { get; set; }
     }
 }
